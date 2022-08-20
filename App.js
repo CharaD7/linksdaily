@@ -10,11 +10,18 @@ export default function App() {
   );
 }
 
+// top left
+// center left
+// bottom left
+// top right
+// center right
+// bottom right
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    // alignItems: 'center',
     justifyContent: 'center',
   },
 });
