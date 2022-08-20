@@ -11,7 +11,7 @@ export default function App() {
       <StatusBar style="auto" />
 
       { names.map((name) => (
-        <Welcome name={name} />
+        <Welcome key={name} name={name} />
       )) }
     </View>
   );
