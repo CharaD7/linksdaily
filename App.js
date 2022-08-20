@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Welcome from './components/Welcome';
 
 export default function App() {
 
@@ -15,19 +16,6 @@ export default function App() {
     </View>
   );
 }
-
-// top left
-// center left
-// bottom left
-// top right
-// center right
-// bottom right
-
-const Welcome = (props) => (
-  <View>
-    <Text>Hello {props.name}</Text>
-  </View>
-)
 
 const styles = StyleSheet.create({
   container: {
