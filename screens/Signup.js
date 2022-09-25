@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import Text from '@kaloraat/react-native-text';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
+import CircleLogo from '../components/auth/CircleLogo';
 
 import axios from 'axios';
 
@@ -24,16 +25,19 @@ const Signup = () => {
 
     try {
       const { data } = await axios.post('http://localhost:8000/api/signup', {name, email, password});
+      setLoading(false);
       console.log('SIGN IN SUCCESS =>', data);
       alert('Sign up successful');
       // TODO redirect
     } catch (err) {
+      setLoading(false);
       console.log(err)
     }
   }
 
   return (
     <View style={{ flex:1, justifyContent: 'center' }}>
+      <CircleLogo />
       <Text title center>Sign Up</Text>
       <UserInput name='NAME' value={name} setValue={setName} autoCapitalize='words' autoCorrect={false} />
       <UserInput name='EMAIL' value={email} setValue={setEmail} autoCompleteType='email' keyboardType='email-address' />
@@ -41,7 +45,7 @@ const Signup = () => {
 
       <SubmitButton handleSubmit={handleSubmit} loading={loading} title="Sign Up"/>
 
-      <Text>{JSON.stringify({ name, email, password }, null, 4)}</Text>
+    {/**<Text>{JSON.stringify({ name, email, password }, null, 4)}</Text>**/}
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import Text from '@kaloraat/react-native-text'
 
 const SubmitButton = ({ title, loading, handleSubmit }) => (
