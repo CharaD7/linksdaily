@@ -25,7 +25,7 @@ const Signup = () => {
     console.log('SIGNUP REQUEST =>', name, email, password)
 
     try {
-      const { data } = await axios.post('http://localhost:8000/api/signup', {name, email, password});
+      const { data } = await axios.post('http://localhost:8000/api/signup', { name, email, password });
       setLoading(false);
       console.log('SIGN IN SUCCESS =>', data);
       alert('Sign up successful');
@@ -37,7 +37,7 @@ const Signup = () => {
   }
 
   return (
-    <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center' }}>
+    <KeyboardAwareScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center' }}>
       <View style={{ marginVertical: 100 }}>
         <CircleLogo />
 
@@ -47,9 +47,9 @@ const Signup = () => {
         <UserInput name='EMAIL' value={email} setValue={setEmail} autoCompleteType='email' keyboardType='email-address' />
         <UserInput name='PASSWORD' value={password} setValue={setPassword} secureTextEntry={true} autoCompleteType='password' />
 
-        <SubmitButton handleSubmit={handleSubmit} loading={loading} title="Sign Up"/>
+        <SubmitButton handleSubmit={handleSubmit} loading={loading} title="Sign Up" />
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 
