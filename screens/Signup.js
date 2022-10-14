@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Text from '@kaloraat/react-native-text';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
@@ -36,17 +37,19 @@ const Signup = () => {
   }
 
   return (
-    <View style={{ flex:1, justifyContent: 'center' }}>
-      <CircleLogo />
-      <Text title center>Sign Up</Text>
-      <UserInput name='NAME' value={name} setValue={setName} autoCapitalize='words' autoCorrect={false} />
-      <UserInput name='EMAIL' value={email} setValue={setEmail} autoCompleteType='email' keyboardType='email-address' />
-      <UserInput name='PASSWORD' value={password} setValue={setPassword} secureTextEntry={true} autoCompleteType='password' />
+    <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center' }}>
+      <View style={{ marginVertical: 100 }}>
+        <CircleLogo />
 
-      <SubmitButton handleSubmit={handleSubmit} loading={loading} title="Sign Up"/>
+        <Text title center>Sign Up</Text>
 
-    {/**<Text>{JSON.stringify({ name, email, password }, null, 4)}</Text>**/}
-    </View>
+        <UserInput name='NAME' value={name} setValue={setName} autoCapitalize='words' autoCorrect={false} />
+        <UserInput name='EMAIL' value={email} setValue={setEmail} autoCompleteType='email' keyboardType='email-address' />
+        <UserInput name='PASSWORD' value={password} setValue={setPassword} secureTextEntry={true} autoCompleteType='password' />
+
+        <SubmitButton handleSubmit={handleSubmit} loading={loading} title="Sign Up"/>
+      </View>
+    </ScrollView>
   );
 };
 
